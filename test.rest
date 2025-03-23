@@ -1,0 +1,26 @@
+### Get all elements 
+GET http://localhost:5050/life-hacks
+
+### Get one element by its id 
+GET http://localhost:5050/life-hacks/67df9912478d5cd7f25681e1
+
+### Creates a new element
+POST http://localhost:5050/life-hacks
+Content-Type: application/json
+
+{
+  "title": "Your title here",
+  "content": "Your content here"
+}
+
+### Updated an existing element
+PUT http://localhost:5050/life-hacks/67dfb009de3be2c89e706426
+Content-Type: application/json
+
+{
+  "title": "This is an update test",
+  "content": "This element has been successfully updated"
+}
+
+### Deletes one element by its id 
+DELETE http://localhost:5050/life-hacks/67dfb009de3be2c89e706426
