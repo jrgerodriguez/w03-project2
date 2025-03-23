@@ -5,10 +5,9 @@
     "description": "W03 Project: Project 2 Part 1 (CRUD Operations)",
     "version": "1.0.0"
   },
-  "host": "localhost:5050",
+  "host": "w03-project2.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
