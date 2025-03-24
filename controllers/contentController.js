@@ -19,12 +19,12 @@ async function getAll(req, res) {
 async function getElementById(req, res) {
     //#swagger.tags=['Hacks']
     try {
-        const elementId = new ObjectId(req.params.id)
+        const { id } = req.params;
 
-        if (!elementId || !ObjectId.isValid(elementId)) {
+        if (!id || !ObjectId.isValid(id)) {
             return res.status(400).json({ error: "Bad Request: Invalid or missing ID" });
         }
-
+        
         const result = await collection.findOne({_id: elementId})
         res.status(200).json(result)
     } catch (error) {
