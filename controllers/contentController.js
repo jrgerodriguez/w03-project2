@@ -24,7 +24,8 @@ async function getElementById(req, res) {
         if (!id || !ObjectId.isValid(id)) {
             return res.status(400).json({ error: "Bad Request: Invalid or missing ID" });
         }
-        
+
+        const elementId = new ObjectId(id);
         const result = await collection.findOne({_id: elementId})
         res.status(200).json(result)
     } catch (error) {
