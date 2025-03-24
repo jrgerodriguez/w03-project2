@@ -101,11 +101,14 @@ async function updateElementById(req, res) {
 async function deleteElementById(req, res) {
     //#swagger.tags=['Hacks']
     try {
-        const elementId = new ObjectId(req.params.id)
 
-        if (!elementId || !ObjectId.isValid(elementId)) {
+        const { id } = req.params;
+
+        if (!id || !ObjectId.isValid(id)) {
             return res.status(400).json({ error: "Bad Request: Invalid or missing ID" });
         }
+
+        const elementId = new ObjectId(id);
 
         await collection.deleteOne({_id: elementId})
 
