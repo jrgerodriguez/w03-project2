@@ -71,6 +71,10 @@ async function updateElementById(req, res) {
             date_added: new Date().toISOString().split('T')[0]
         }
 
+        if (!elementId || !ObjectId.isValid(elementId)) {
+            return res.status(400).json({ error: "Bad Request: Invalid or missing ID" });
+        }
+
         const result = await collection.updateOne(
             {_id: elementId},
             {$set: element}
