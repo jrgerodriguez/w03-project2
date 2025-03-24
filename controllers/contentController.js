@@ -64,16 +64,19 @@ async function createNewElement(req, res) {
 async function updateElementById(req, res) {
     //#swagger.tags=['Hacks']
     try {
-        const elementId = new ObjectId(req.params.id)
+
+        const { id } = req.params;
+
+        if (!id || !ObjectId.isValid(id)) {
+            return res.status(400).json({ error: "Bad Request: Invalid or missing ID" });
+        }
+
+        const elementId = new ObjectId(id);
 
         const element = {
             title: req.body.title,
             content: req.body.content,
             date_added: new Date().toISOString().split('T')[0]
-        }
-
-        if (!elementId || !ObjectId.isValid(elementId)) {
-            return res.status(400).json({ error: "Bad Request: Invalid or missing ID" });
         }
 
         const result = await collection.updateOne(
