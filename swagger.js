@@ -5,7 +5,7 @@ const doc = {
     title: 'Life Hacks API',
     description: 'W03 Project: Project 2 Part 1 (CRUD Operations)' 
 },
-  host: 'localhost:3000',
+  host: 'localhost:5050',
   schemes: ['https', 'http']
 };
 

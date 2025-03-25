@@ -1,0 +1,36 @@
+### Get all elements 
+GET http://localhost:5050/bloggers
+
+### Get one element by its id 
+GET http://localhost:5050/bloggers/67e229c11cfa44d9f8208ea8
+
+### Creates a new element
+POST http://localhost:5050/bloggers
+Content-Type: application/json
+
+{
+  "firstName": "Jorge",
+  "lastName": "Menjivar",
+  "email": "jorge.menjivar@email.com", 
+  "city": "San Salvador",
+  "country": "El Salvador",
+  "instagram": "@jorge_m",
+  "facebook": "jorge.menjivar"
+}
+
+### Updated an existing element
+PUT http://localhost:5050/bloggers/67e229c11cfa44d9f8208ea8
+Content-Type: application/json
+
+{
+  "firstName": "Jorge",
+  "lastName": "Menjivar",
+  "email": "jorge.menjivar@email.com", 
+  "city": "San Salvador",
+  "country": "El Salvador",
+  "instagram": "@jorge_r",
+  "facebook": "jorge.menjivar"
+}
+
+### Deletes one element by its id 
+DELETE http://localhost:5050/bloggers/67e229c11cfa44d9f8208ea8

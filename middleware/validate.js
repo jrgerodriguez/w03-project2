@@ -18,6 +18,29 @@ const createAndUpdateElement = (req, res, next) => {
   });
 };
 
+const createAndUpdateBlogger = (req, res, next) => {
+  const validationRule = {
+    firstName: "required|string",
+    lastName: "required|string",
+    email: "required|email", 
+    city: "required|string",
+    country: "required|string",
+    instagram: "string", 
+    facebook: "string",
+  };
+  validator(req.body, validationRule, {}, (err, status) => {
+    if (!status) {
+      res.status(400).send({
+        success: false,
+        message: "Validation failed",
+        data: err,
+      });
+    } else {
+      next();
+    }
+  });
+};
+
 module.exports = {
-  createAndUpdateElement,
+  createAndUpdateElement, createAndUpdateBlogger
 };

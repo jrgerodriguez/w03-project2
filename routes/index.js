@@ -9,4 +9,6 @@ router.get("/", (req, res) => {
 
 router.use("/life-hacks", require('./contentRoutes'))
 
+router.use("/bloggers", require('./bloggersRoutes'))
+
 module.exports = router
